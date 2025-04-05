@@ -37,24 +37,27 @@ public abstract class BaseTest {
         arquitectura = new Materia("Arquitectura de Computadoras");
         operativos = new Materia("Sistemas Operativos");
 
-        correlativasParadigmas = new ArrayList<>();
-        correlativasSO = new ArrayList<>();
+//        correlativasParadigmas = new ArrayList<>();
+//        correlativasSO = new ArrayList<>();
         materiasAprobadas = new ArrayList<>();
         materiasAInscribir = new ArrayList<>();
 
-        alumno = new Alumno();
+        alumno = new Alumno(materiasAprobadas);
         inscripcion = new Inscripcion();
 
-        setCorrelativas();
+        paradigmas.agregarCorrelativas(discreta,algoritmos);
+        operativos.agregarCorrelativas(arquitectura);
+
+//        setCorrelativas();
     }
 
-    private void setCorrelativas() {
+/*    private void setCorrelativas() {
         correlativasParadigmas.add(discreta);
         correlativasParadigmas.add(algoritmos);
         paradigmas.setCorrelativasNecesarias(correlativasParadigmas);
 
         correlativasSO.add(arquitectura);
         operativos.setCorrelativasNecesarias(correlativasSO);
-    }
+    }*/
 
 }

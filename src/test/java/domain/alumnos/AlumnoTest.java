@@ -19,21 +19,18 @@ class AlumnoTest extends BaseTest {
     @DisplayName("Test alumno puede cursar materia en la que cumple con las correlativas")
     void puedeCursarMateria() {
 
-        materiasAprobadas.add(algoritmos);
-        materiasAprobadas.add(discreta);
-        alumno.setMateriasAprobadas(materiasAprobadas);
-
+        alumno.aprobarMateria(algoritmos,discreta);
         Assertions.assertTrue(alumno.puedeCursar(paradigmas));
+
     }
 
     @Test
     @DisplayName("Test alumno NO puede cursar materia ya que no cumple con al menos una de las correlativas necesarias")
     void noPuedeCursarMateria() {
 
-        materiasAprobadas.add(algoritmos);
-        alumno.setMateriasAprobadas(materiasAprobadas);
-
+        alumno.aprobarMateria(algoritmos);
         Assertions.assertFalse(alumno.puedeCursar(paradigmas));
+
     }
 
 }

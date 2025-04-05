@@ -10,12 +10,15 @@ class Inscripcion{
 class Materia{
     - nombre: String
     - correlativasNecesarias: List<Materia>
+
+    + agregarCorrelativas(ArrayList<Materia> correlativas) : void
 }
 
 class Alumno{
     - materiasAprobadas: List<Materia>
 
     + puedeCursar(Materia materia) : boolean
+    + aprobarMateria(ArrayList<Materia> materias) : void
 }
 
 Alumno --> " * " Materia

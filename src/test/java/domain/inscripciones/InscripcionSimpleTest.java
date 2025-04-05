@@ -25,10 +25,8 @@ class InscripcionSimpleTest extends BaseTest {
     @DisplayName("Test inscripcion aprobada si alumno cumple con las correlatividades necesarias")
     void inscripcionAprobada() {
 
-        materiasAprobadas.add(algoritmos);
-        materiasAprobadas.add(discreta);
-        alumno.setMateriasAprobadas(materiasAprobadas);
-
+        alumno.aprobarMateria(algoritmos,discreta);
+        
         inscripcion.setAlumno(alumno);
 
         materiasAInscribir.add(paradigmas);
@@ -41,8 +39,8 @@ class InscripcionSimpleTest extends BaseTest {
     @DisplayName("Test inscripcion desaprobada si alumno no cumple con alguna de las correlatividades necesarias")
     void inscripcionDesaprobada() {
 
-        materiasAprobadas.add(algoritmos);
-        alumno.setMateriasAprobadas(materiasAprobadas);
+
+        alumno.aprobarMateria(algoritmos);
 
         inscripcion.setAlumno(alumno);
 

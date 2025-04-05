@@ -3,6 +3,8 @@ package domain.inscripciones;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Getter
@@ -10,6 +12,10 @@ import java.util.List;
 public class Alumno {
 
     private List<Materia> materiasAprobadas;
+
+    public Alumno(List<Materia> materiasAprobadas) {
+        this.materiasAprobadas = new ArrayList<>();
+    }
 
     public boolean puedeCursar(Materia materia){
 
@@ -21,4 +27,9 @@ public class Alumno {
 
         return materiasAprobadas.containsAll(correlativas);
     }
+
+    public void aprobarMateria(Materia ... materias){
+        Collections.addAll(this.materiasAprobadas,materias);
+    }
+
 }

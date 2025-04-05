@@ -13,10 +13,7 @@ class InscripcionComplejaTest extends BaseTest {
     @DisplayName("Test inscripcion aprobada si alumno cumple con las correlatividades necesarias de todas las materias")
     void inscripcionAprobada() {
 
-        materiasAprobadas.add(discreta);
-        materiasAprobadas.add(algoritmos);
-        materiasAprobadas.add(arquitectura);
-        alumno.setMateriasAprobadas(materiasAprobadas);
+        alumno.aprobarMateria(discreta,algoritmos,arquitectura);
 
         inscripcion.setAlumno(alumno);
 
@@ -31,9 +28,7 @@ class InscripcionComplejaTest extends BaseTest {
     @DisplayName("Test inscripcion desaprobada si alumno no cumple con las correlatividades necesarias de al menos una de las materias a inscribirse")
     void inscripcionDesaprobada() {
 
-        materiasAprobadas.add(discreta);
-        materiasAprobadas.add(algoritmos);
-        alumno.setMateriasAprobadas(materiasAprobadas);
+        alumno.aprobarMateria(discreta,algoritmos);
 
         inscripcion.setAlumno(alumno);
 
