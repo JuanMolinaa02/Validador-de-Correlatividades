@@ -1,35 +1,25 @@
 @startuml
 
 class Inscripcion{
-
     - materias: List<Materia>
     - alumno: Alumno
 
     + aprobada() : boolean
-
 }
 
 class Materia{
-
     - nombre: String
-    - materiasCorrelativasNecesarias: List<Materia>
-
-    + getNombre() : String
-    + getMateriasCorrelativasNecesarias() : List<Materia>
-    + setMateriasCorrelativasNecesarias(List<Materia> materias): void
+    - correlativasNecesarias: List<Materia>
 }
 
 class Alumno{
-    - nombre: String
-    - legajo: String
     - materiasAprobadas: List<Materia>
 
-    + getMateriasAprobadas() : List<Materia>
-
+    + puedeCursar(Materia materia) : boolean
 }
 
-Alumno "1" --> "many" Materia
-Inscripcion "1" --> "1" Alumno
-Inscripcion --> "many" Materia
+Alumno --> " * " Materia
+Inscripcion --> Alumno
+Inscripcion --> " * " Materia
 
 @enduml

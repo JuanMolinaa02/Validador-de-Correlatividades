@@ -1,15 +1,19 @@
 package domain.inscripciones;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
 public class Inscripcion {
 
-    private List<Materia> materias;
+    private List<Materia> materiasAInscribir;
     private Alumno alumno;
 
     public boolean aprobada(){
-        //TODO
-        return true;
+        return this.materiasAInscribir.stream().allMatch(materia -> alumno.puedeCursar(materia));
     }
 
 }

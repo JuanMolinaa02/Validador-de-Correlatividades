@@ -1,22 +1,24 @@
 package domain.inscripciones;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
 public class Alumno {
 
-    private String nombre;
-    private String legajo;
     private List<Materia> materiasAprobadas;
 
-    public String getNombre() {
-        return nombre;
-    }
+    public boolean puedeCursar(Materia materia){
 
-    public List<Materia> getMateriasAprobadas() {
-        return materiasAprobadas;
-    }
+        List<Materia> correlativas = materia.getCorrelativasNecesarias();
 
-    public void setMateriasAprobadas(List<Materia> materiasAprobadas) {
-        this.materiasAprobadas = materiasAprobadas;
+        if(correlativas == null || correlativas.isEmpty()){
+            return true;
+        }
+
+        return materiasAprobadas.containsAll(correlativas);
     }
 }
